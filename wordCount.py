@@ -42,9 +42,7 @@ def get_words(document):
     #regex substitutes all non words or underscores with a space
     #since \W doesn't include _ i had to include or statement
     document = re.sub("\W+", " ", document)
-    #for word in document:
-     #   print(word)
-      #  word_list.append(word)
+
     word_list = document.split()
     return word_list
 
