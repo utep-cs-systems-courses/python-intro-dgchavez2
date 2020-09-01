@@ -13,10 +13,8 @@ def main():
     file = open(inputFname, "r")
     document = file.read()
     file.close()
-
     #ignoring case
     document = document.lower()
-
     #calls func and sorts the returned list, initializing dictionary
     # to get ready for output file
     word_list = get_words(document)
@@ -24,7 +22,7 @@ def main():
     dic = {}
 
     #counts words
-    for word in document:
+    for word in word_list:
         if word not in dic:
                 dic[word] = 1
         else:
@@ -43,10 +41,11 @@ def get_words(document):
 
     #regex substitutes all non words or underscores with a space
     #since \W doesn't include _ i had to include or statement
-    re.sub(r"\W+|_", " ", document)
-
-    for word in document:
-        word_list.append(word)
+    document = re.sub("\W+", " ", document)
+    #for word in document:
+     #   print(word)
+      #  word_list.append(word)
+    word_list = document.split()
     return word_list
 
 main()
